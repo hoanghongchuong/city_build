@@ -26,7 +26,7 @@
 <body>
     <header id="header" class="">
         <div class="container">
-            <div class="row">
+            <div class="row visible-md">
                 <div class="logo">
                     <a href="" title=""><img src="images/logo.png"></a>
                 </div>
@@ -49,6 +49,35 @@
                         <li><a href="">Liên hệ</a></li>
                     </ul>                    
                 </div>
+            </div>
+            <div class="row visible-xs visible-sm">
+                <div class="vk-header__search">
+                    <div class="container">
+                        
+                        <a href="#menuMobile" data-toggle="collapse" class="_btn d-lg-none menu_title"><i class="fa fa-bars"></i> Menu</a>
+                    </div>
+                </div>
+                <nav class="vk-header__menu-mobile">
+                    <ul class="vk-menu__mobile collapse" id="menuMobile">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li>
+                            <a href="#">Thi công</a>
+                            <a href="#menu1" data-toggle="collapse" class="_arrow-mobile"><i class="_icon fa fa-angle-down"></i></a>
+                            <ul class="collapse" id="menu1">
+                                <li><a href="#">Tổng quan</a></li>
+                                <li><a href="#">Tầm nhìn  -  Giá trị cốt lõi</a></li>
+                                <li><a href="#">Sơ đồ tổ chức</a></li>
+                                <li><a href="#">Hệ thống quản trị</a></li>
+                                <li><a href="#">Chứng chỉ</a></li>
+                                <li><a href="#">Đối tác - khách hàng</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Dự án</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                
             </div>
         </div>
     </header><!-- /header -->
