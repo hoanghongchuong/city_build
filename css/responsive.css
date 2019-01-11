@@ -19,6 +19,16 @@
 	.list-hot-item{
 		display: block !important;
 	}
+	.short-des-home{
+		display: block !important;
+	}
+	.nav-tabs-custom .nav-tabs{
+		font-size: 18px;
+	}
+	.nav-tabs-custom .nav-tabs li{
+		margin-right: 5px;
+		margin-bottom: 10px;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 999px){

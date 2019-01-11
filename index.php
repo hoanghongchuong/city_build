@@ -26,7 +26,7 @@
 <body>
     <header id="header" class="">
         <div class="container">
-            <div class="row visible-md">
+            <div class="row hidden-xs">
                 <div class="logo">
                     <a href="" title=""><img src="images/logo.png"></a>
                 </div>
@@ -51,6 +51,7 @@
                 </div>
             </div>
             <div class="row visible-xs visible-sm">
+                <div class="logo_mobile"><a href="" title=""><img src="images/logo.png"></a></div>
                 <div class="vk-header__search">
                     <div class="container">
                         
@@ -77,7 +78,6 @@
                         <li><a href="#">Liên hệ</a></li>
                     </ul>
                 </nav>
-                
             </div>
         </div>
     </header><!-- /header -->
