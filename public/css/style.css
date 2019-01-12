@@ -517,3 +517,8 @@ a:hover {
 .content_detail .left img{
 	width: 100%;
 }
+.box-item-news{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+}

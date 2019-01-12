@@ -17,23 +17,6 @@ use App\ChiNhanh;
 class IndexController extends Controller {
 	protected $setting = NULL;
 
-	
-	/*
-	|--------------------------------------------------------------------------
-	| Welcome Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller renders the "marketing page" for the application and
-	| is configured to only allow guests. Like most of the other sample
-	| controllers, you are free to modify or remove it as you desire.
-	|
-	*/
-
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
 	public function __construct()
 	{
 		session_start();
@@ -61,7 +44,6 @@ class IndexController extends Controller {
 	 */
 	public function index()
 	{
-		
 		$news = DB::table('news')->where('status',1)->where('com','tin-tuc')->take(4)->orderBy('id','desc')->get();
 		$products = DB::table('products')->where('status',1)->take(20)->orderBy('id','desc')->get();
 		$categories_home = DB::table('product_categories')->where('status',1)->where('com','san-pham')
@@ -114,10 +96,7 @@ class IndexController extends Controller {
         			$array_cate[] = $cate->id;
         		}
         	}        	
-        	
-
         	$products = Products::whereIn('cate_id', $array_cate)->orderBy('id','desc')->paginate(18);
-            
             if (!empty($product_cate->title)) {
                 $title = $product_cate->title;
             } else {
@@ -281,7 +260,58 @@ class IndexController extends Controller {
 		}
 		
 	}
-	
+
+	public function design()
+	{
+		$tintuc = DB::table('news')->select()->where('status',1)->where('com','thiet-ke')->orderby('id','desc')->paginate(18);
+		$com='thiet-ke';
+		// Cấu hình SEO
+		$title = "Thiết kế";
+		$keyword = "Thiết kế";
+		$description = "Thiết kế";
+		$img_share = '';
+		// End cấu hình SEO
+		return view('templates.design', compact('tintuc','keyword','description','title','img_share','com'));
+	}
+	public function getListDesign($alias)
+	{
+		$tintuc_cate = DB::table('news_categories')->select()->where('status',1)->where('com','thiet-ke')->where('alias',$alias)->first();
+		if(!empty($tintuc_cate)){
+			$data = DB::table('news')->select()->where('status',1)->where('cate_id',$tintuc_cate->id)->orderBy('id','desc')->paginate(18);			
+			if(!empty($tintuc_cate->title)){
+				$title = $tintuc_cate->title;
+			}else{
+				$title = $tintuc_cate->name;
+			}			
+			$keyword = $tintuc_cate->keyword;
+			$description = $tintuc_cate->description;
+			$img_share = asset('upload/news/'.$tintuc_cate->photo);
+			// End cấu hình SEO
+			return view('templates.design_list', compact('data','tintuc_cate','banner_danhmuc','keyword','description','title','img_share','tintuc_moinhat_detail','hot_news', 'cateNews'));
+		}else{
+			return redirect()->route('getErrorNotFount');
+		}
+	}
+	public function getDesignDetail($alias)
+	{
+		$news_detail = DB::table('news')->select()->where('status',1)->where('com','thiet-ke')->where('alias',$alias)->first();		
+		if(!empty($news_detail)){			
+			$cate_pro = DB::table('product_categories')->where('status',1)->where('parent_id',0)->orderby('id','asc')->get();			
+			$com='thiet-ke';			
+			// Cấu hình SEO
+			if(!empty($news_detail->title)){
+				$title = $news_detail->title;
+			}else{
+				$title = $news_detail->name;
+			}
+			$keyword = $news_detail->keyword;
+			$description = $news_detail->description;
+			$img_share = asset('upload/news/'.$news_detail->photo);
+			return view('templates.design_detail', compact('news_detail','com','keyword','description','title','img_share'));
+		}else{
+			return redirect()->route('getErrorNotFount');
+		}
+	}
 	public function congTrinh()
 	{
 		$data = DB::table('news')->where('com', 'anh-cong-trinh')->where('status',1)->orderBy('id','desc')->get();

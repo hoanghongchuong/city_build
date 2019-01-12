@@ -1,7 +1,7 @@
 <?php
     $setting = Cache::get('setting');
     $sliders = DB::table('slider')->where('com','gioi-thieu')->where('status',1)->get();
-    $categories = DB::table('news_categories')->where('com', 'dich-vu')->where('status',1)->where('parent_id', 0)->get();
+    $categories = DB::table('news_categories')->where('com', 'thiet-ke')->where('status',1)->where('parent_id', 0)->get();
 ?>
 <header id="header" class="">
     <div class="container">
@@ -12,7 +12,14 @@
             <div class="menu">                    
                 <ul class="list-menu">
                     <li class=""><a href="{{url('')}}">Trang chủ</a></li>
-                    <li class=""><a href="">Thiết kế</a></li>
+                    <li class="dropdown submenux">
+                        <a href="">Thiết kế</a>
+                        <ul class="dropdown-menu dropmenux">
+                            @foreach($categories as $category)
+                            <li><a href="{{url('thiet-ke/'.$category->alias)}}">{{$category->name}}</a></li>                                
+                            @endforeach                               
+                        </ul>
+                    </li>
                     <li class="dropdown submenux">
                         <a href="">Thi công</a>
                         <ul class="dropdown-menu dropmenux">

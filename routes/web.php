@@ -65,6 +65,12 @@ Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getL
 
 Route::get('anh-cong-trinh', 'IndexController@congTrinh');
 Route::get('anh-cong-trinh/{alias}.html', 'IndexController@congTrinhDetail');
+
+Route::get('thiet-ke',['as'=>'getListNews', 'uses'=>'IndexController@design']);
+Route::get('thiet-ke/{alias}.html',['as'=>'getDesignDetail', 'uses'=>'IndexController@getDesignDetail']);
+Route::get('thiet-ke/{alias}',['as'=>'getListDesign', 'uses'=>'IndexController@getListDesign']);
+
+
 Route::get('chuyen-giao-cong-nghe', 'IndexController@congNghe');
 Route::get('chuyen-giao-cong-nghe/{alias}.html', 'IndexController@congNgheDetail');
 

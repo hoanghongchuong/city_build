@@ -49,7 +49,7 @@
 								      	@endif
 									</div>									
 									<div class="clearfix"></div>
-									@if($_GET['type'] == 'dich-vu')
+									@if($_GET['type'] == 'thiet-ke')
 									<div class="form-group">
 								      	<label for="ten">Danh mục bài viết</label>
 								      	<select name="txtNewsCate" class="form-control">
