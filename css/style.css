@@ -67,7 +67,7 @@ a:hover {
 	font-size: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
-	font-family: OpenSemiBold;
+	/*font-family: OpenSemiBold;*/
 }
 .list-menu li.active{
 	background: #ebebeb;
@@ -445,4 +445,32 @@ a:hover {
 	width: 100%;
 	float: left;
 	padding-top: 10px;
+}
+.content_category{
+	width: 100%;
+	float: left;
+	/*margin-top: 30px;*/
+	margin-bottom: 30px;
+}
+.listx{
+	display: block !important;
+}
+.breadcrumb ul{
+	margin-bottom: 0px;
+}
+.breadcrumb ul li{
+	display: inline-block;
+}
+.name_detail{
+	margin-top: 0px;
+	font-size: 28px;
+	font-family: OpenSemiBold;
+}
+.content_detail{
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+}
+.content_detail .left img{
+	width: 100%;
 }
