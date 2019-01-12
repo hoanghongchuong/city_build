@@ -63,8 +63,8 @@ Route::get('tin-tuc',['as'=>'getListNews', 'uses'=>'IndexController@getNews']);
 Route::get('tin-tuc/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
 Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
 
-Route::get('dao-tao', 'IndexController@daoTao');
-Route::get('dao-tao/{alias}.html', 'IndexController@daoTaoDetail');
+Route::get('anh-cong-trinh', 'IndexController@congTrinh');
+Route::get('anh-cong-trinh/{alias}.html', 'IndexController@congTrinhDetail');
 Route::get('chuyen-giao-cong-nghe', 'IndexController@congNghe');
 Route::get('chuyen-giao-cong-nghe/{alias}.html', 'IndexController@congNgheDetail');
 

@@ -72,7 +72,6 @@ class IndexController extends Controller {
 		$about = DB::table('about')->where('com','gioi-thieu')->first();
 		$service = DB::table('news')->where('status',1)->where('com','dich-vu')->take(6)->orderBy('id','desc')->get();
 		$video = DB::table('video')->first();
-		$daotao = DB::table('news')->where('status',1)->where('com','dao-tao')->take(3)->orderBy('id','desc')->get();
 		$title = $setting->title;
 		$keyword = $setting->keyword;
 		$description = $setting->description;		
@@ -283,20 +282,20 @@ class IndexController extends Controller {
 		
 	}
 	
-	public function daoTao()
+	public function congTrinh()
 	{
-		$data = DB::table('news')->where('com', 'dao-tao')->where('status',1)->orderBy('id','desc')->get();
-		$title = "Đào tạo";
-		return view('templates.daotao', compact('data', 'title'));
+		$data = DB::table('news')->where('com', 'anh-cong-trinh')->where('status',1)->orderBy('id','desc')->get();
+		$title = "Ảnh công trình";
+		return view('templates.congtrinh', compact('data', 'title'));
 	}
-	public function daoTaoDetail($alias)
+	public function congTrinhDetail($alias)
 	{
-		$news_detail = DB::table('news')->select()->where('status',1)->where('com','dao-tao')->where('alias',$alias)->first();
+		$news_detail = DB::table('news')->select()->where('status',1)->where('com','anh-cong-trinh')->where('alias',$alias)->first();
 		
 		if(!empty($news_detail)){			
 						
-			$com='dao-tao';
-			$newsSameCate = DB::table('news')->where('status',1)->where('com','dao-tao')->orderBy('id','desc')->get();
+			$com='anh-cong-trinh';
+			$newsSameCate = DB::table('news')->where('status',1)->where('com','anh-cong-trinh')->orderBy('id','desc')->get();
 			// Cấu hình SEO
 			if(!empty($news_detail->title)){
 				$title = $news_detail->title;
@@ -307,7 +306,7 @@ class IndexController extends Controller {
 			$description = $news_detail->description;
 			$img_share = asset('upload/news/'.$news_detail->photo);
 
-			return view('templates.daotao_detail', compact('news_detail','com','keyword','description','title','img_share','newsSameCate'));
+			return view('templates.congtrinh_detail', compact('news_detail','com','keyword','description','title','img_share','newsSameCate'));
 		}else{
 			return redirect()->route('getErrorNotFount');
 		}

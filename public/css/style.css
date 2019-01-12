@@ -175,13 +175,13 @@ a:hover {
 	padding-right: 0px;
 }
 .list-hot-item .right{
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 }
 .list-hot-item .right img{
 	height: 460px;
 	width: 100%;
 }
-.list-hot-item .short-des-home{
+/*.list-hot-item .short-des-home{
 	position: absolute;
     bottom: 30px;
     background: #fff;
@@ -191,6 +191,49 @@ a:hover {
     padding: 15px 15px 35px 15px;
     left: 0;
     display: none;
+}*/
+.list-hot-item .short-des-home{
+	display: none;
+	position: absolute;
+	text-align: center;
+	top: 70px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    z-index: 3;
+}
+.box_fix{
+	background: white;
+    position: absolute;
+    content: " ";
+    top: 40px;
+    left: 30px;
+    bottom: 40px;
+    right: 30px;
+    z-index: 2;
+    opacity: 0.8;
+    display: none;
+}
+.rights{
+	position: relative;
+}
+.rights .short-des-home{
+	top: 150px;
+}
+.rights:hover .short-des-home{
+	display: block;
+}
+.box_fixs{
+	background: white;
+    position: absolute;
+    content: " ";
+    top: 40px;
+    left: 30px;
+    bottom: 60px;
+    right: 30px;
+    z-index: 2;
+    opacity: 0.8;
+    display: block;
 }
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }
@@ -200,7 +243,7 @@ a:hover {
     from { opacity: 0; }
       to { opacity: 1; }
 }
-.list-hot-item .box-item:hover .short-des-home{
+.list-hot-item .box-item:hover .short-des-home , .box-item:hover .box_fix{
 	display: block;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
@@ -473,42 +516,4 @@ a:hover {
 }
 .content_detail .left img{
 	width: 100%;
-}
-.box-item-news{
-	width: 100%;
-	float: left;
-	margin-bottom: 20px;
-}
-.name_news{
-	font-size: 18px;
-	font-family: OpenSemiBold;
-}
-.right-sidebar a{
-	font-size: 18px;
-	color: #000;
-}
-.right-sidebar .service-list h2 {
-    background-color: #cc0000;
-    padding: 9px;
-    margin-bottom: 0px;
-    color: #fff;
-    font-size: 22px;
-}
-ul.arrow-circle-o-right {
-    margin-bottom: 30px;
-    list-style: none;
-    font-size: 14px;
-}
-.right-sidebar .service-list ul li {
-    border-bottom: 2px solid #f0f0f0;
-    border-left: 2px solid #f0f0f0;
-    border-right: 2px solid #f0f0f0;
-    margin-bottom: 0px;
-    padding-left: 20px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-.right-sidebar a {
-    font-size: 18px;
-    color: #000;
 }

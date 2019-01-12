@@ -22,7 +22,7 @@
                             <li><a href="#">Công trình 1</a></li>                                
                         </ul>
                     </li>
-                    <li><a href="">Ảnh công trình</a></li>
+                    <li><a href="{{url('anh-cong-trinh')}}">Ảnh công trình</a></li>
                     <li><a href="{{url('bao-gia')}}">Báo giá</a></li>
                     <li><a href="{{url('tin-tuc')}}">Tin tức</a></li>
                     <li><a href="{{url('lien-he')}}">Liên hệ</a></li>
@@ -53,6 +53,7 @@
                             <li><a href="#">Đối tác - khách hàng</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{url('anh-cong-trinh')}}">Ảnh công trình</a></li>
                     <li><a href="{{url('bao-gia')}}">Báo giá</a></li>
                     <li><a href="{{url('tin-tuc')}}">Tin tức</a></li>
                     <li><a href="{{url('lien-he')}}">Liên hệ</a></li>
