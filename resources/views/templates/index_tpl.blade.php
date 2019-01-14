@@ -12,64 +12,39 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
             <h3 class="title_home">Dự án đã thực hiện</h3>
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thiết kế nội thất</a></li>
-                    <li><a href="#tab_2" data-toggle="tab" aria-expanded="true">Thiết kế ngoại thất</a></li>
+                    @foreach($categories_design_home as $k=>$cate_tab)
+                    <li class="@if($k == 0)active @endif"><a href="#tab_{{$k}}" data-toggle="tab" aria-expanded="false">{{$cate_tab->name}}</a></li>
+                    @endforeach
+                    
                     <li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Ảnh công trình</a></li>
                 </ul>
                 <div class="tab-content ">
-                    <div class="tab-pane active " id="tab_1">
+                    @foreach($categories_design_home as $k=>$cate_tab)
+                    <?php $data = DB::table('news')->where('status',1)->where('cate_id',$cate_tab->id)->take(5)->orderBy('id','desc')->get(); ?>
+                    <div class="tab-pane @if($k == 0)active @endif" id="tab_{{$k}}">
                         <div class="list-hot-item">
                             <div class="col-md-8 left">
+                                @for($i = 0 ; $i <=3; $i++)
                                 <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
+                                    <a href="{{asset('thiet-ke/'.@$data[$i]->alias.'.html')}}" title="">
+                                        <p><img src="{{asset('upload/news/'.@$data[$i]->photo)}}"></p>
+                                        <div class="box_fix"></div>
                                         <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
+                                            <div class="name_vk">{{@$data[$i]->name}}</div>
                                             <div class="readmore">
                                                 <span>Xem thêm</span>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                @endfor
                             </div>
-                            <div class="col-md-4 right">
-                                <a href="" title="">
-                                    <p><img src="images/p1.png"></p>
+                            <div class="col-md-4 right rights rightxx">
+                                <a href="{{asset('thiet-ke/'.@$data[4]->alias.'.html')}}" title="{{@$data[4]->name}}">
+                                    <p><img src="{{asset('upload/news/'.@$data[4]->photo)}}"></p>
+                                    <div class="box_fixs"></div>
                                     <div class="short-des-home right_banner">
-                                        <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
+                                        <div class="name_vk">{{@$data[4]->name}}</div>
                                         <div class="readmore">
                                             <span>Xem thêm</span>
                                         </div>
@@ -78,63 +53,39 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab_2">
+                    @endforeach
+                    
+                    <div class="tab-pane" id="tab_3">
                         <div class="list-hot-item">
                             <div class="col-md-8 left">
+                                @for($i = 0 ; $i <=3; $i++)
                                 <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
+                                    <a href="{{asset('anh-cong-trinh/'.@$products[$i]->alias.'.html')}}" title="">
+                                        <p><img src="{{asset('upload/news/'.@$products[$i]->photo)}}"></p>
+                                        <div class="box_fix"></div>
                                         <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM 2</div>
+                                            <div class="name_vk">{{@$products[$i]->name}}</div>
                                             <div class="readmore">
                                                 <span>Xem thêm</span>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="box-item col-md-6">
-                                    <a href="" title="">
-                                        <p><img src="images/sv1.png"></p>
-                                        <div class="short-des-home">
-                                            <div class="name_vk">Thiết kế căn hộ CC Carillon phường Tân Bình, HCM</div>
-                                            <div class="readmore">
-                                                <span>Xem thêm</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                @endfor
                             </div>
-                            <div class="col-md-4 right">
-                                <a href="" title="">
-                                    <img src="images/p1.png">
+                            <div class="col-md-4 right rights rightxx">
+                                <a href="{{asset('anh-cong-trinh/'.@$products[4]->alias.'.html')}}" title="">
+                                    <p><img src="{{asset('upload/news/'.@$products[4]->photo)}}"></p>
+                                    <div class="box_fixs"></div>
+                                    <div class="short-des-home right_banner">
+                                        <div class="name_vk">{{@$products[4]->name}}</div>
+                                        <div class="readmore">
+                                            <span>Xem thêm</span>
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane" id="tab_3">
-                        3
                     </div>
                 </div>
             </div>
@@ -146,26 +97,15 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
         <div class="row">
             <h3 class="title_home">Dịch vụ của chúng tôi</h3>
             <div class="box-service-home">
+                @foreach($categories_design_home as $cate_home)
                 <div class="col-md-6 col-xs-12">
-                    <p><a href="" title=""><img src="images/sv1.png"></a></p>
-                    <p class="name_service_home"><a href="" title="">Thiết kế nội thất</a></p>
+                    <p><a href="{{url('thiet-ke/'.$cate_home->alias)}}" title="{{$cate_home->name}}"><img src="{{asset('upload/news/'.$cate_home->photo)}}" alt="{{$cate_home->name}}"></a></p>
+                    <p class="name_service_home"><a href="{{url('thiet-ke/'.$cate_home->alias)}}" title="{{$cate_home->name}}">{{$cate_home->name}}</a></p>
                     <div class="short-des-service">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        {!! $cate_home->mota !!}
                     </div>
                 </div>
-                <div class="col-md-6 col-xs-12">
-                    <p><a href="" title=""><img src="images/sv2.png"></a></p>
-                    <p class="name_service_home"><a href="" title="">Thiết kế công trình</a></p>
-                    <div class="short-des-service">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -180,7 +120,6 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
                         {!! $about->mota !!}
                     </div>
                     <a href="{{url('gioi-thieu')}}" title=""><p class="readmore"><span>Xem thêm</span></p></a>
-                    
                 </div>
             </div>
         </div>

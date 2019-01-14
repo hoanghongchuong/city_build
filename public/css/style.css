@@ -126,7 +126,7 @@ a:hover {
 }
 .title_home{
 	text-align: center;
-	font-size: 40px;
+	font-size: 30px;
 	font-family: OpenExtraBold;
 	color: #000;
 }
@@ -233,7 +233,7 @@ a:hover {
     right: 30px;
     z-index: 2;
     opacity: 0.8;
-    display: block;
+    display: none;
 }
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }
@@ -243,10 +243,13 @@ a:hover {
     from { opacity: 0; }
       to { opacity: 1; }
 }
-.list-hot-item .box-item:hover .short-des-home , .box-item:hover .box_fix{
+.list-hot-item .box-item:hover .short-des-home , .box-item:hover .box_fix, .rightxx:hover .box_fixs{
 	display: block;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
+}
+.rights .short-des-home {
+    top: 150px;
 }
 .name_vk{
 	color: #000;
@@ -521,4 +524,18 @@ a:hover {
 	width: 100%;
 	float: left;
 	margin-bottom: 20px;
+}
+.right_sidebar img{
+	width: 100px;
+}
+.right_sidebar h4{
+	margin-top: 5px;
+}
+.right_sidebar h4 a{
+	font-size: 16px;
+	color: #000;
+}
+.tt-right{
+	font-size: 20px;
+	font-weight: bold;
 }

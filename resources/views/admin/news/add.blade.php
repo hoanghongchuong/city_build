@@ -55,7 +55,7 @@
 									</div>
 									
 									<div class="clearfix"></div>
-									@if($_GET['type'] == 'thiet-ke')
+									@if($_GET['type'] == 'thiet-ke' || $_GET['type'] == 'thi-cong')
 									<div class="form-group">
 								      	<label for="ten">Danh mục cha</label>
 								      	<select name="txtNewsCate" class="form-control">

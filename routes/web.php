@@ -23,7 +23,6 @@ Route::post('lien-he',['as'=>'postContact', 'uses'=>'ContactController@postConta
 // Ajax load more project
 Route::get('loadmore/project','IndexController@loadmoreProject')->name('loadmoreProject');
 
-
 Route::get('tim-kiem',['as'=>'search', 'uses'=>'IndexController@search']);
 Route::post('newsletter',['as'=>'postNewsletter', 'uses'=>'IndexController@postNewsletter']);
 Route::get('san-pham',['as'=>'getProduct', 'uses'=>'IndexController@getProduct']);
@@ -66,10 +65,13 @@ Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getL
 Route::get('anh-cong-trinh', 'IndexController@congTrinh');
 Route::get('anh-cong-trinh/{alias}.html', 'IndexController@congTrinhDetail');
 
-Route::get('thiet-ke',['as'=>'getListNews', 'uses'=>'IndexController@design']);
+Route::get('thiet-ke',['as'=>'getDesign', 'uses'=>'IndexController@design']);
 Route::get('thiet-ke/{alias}.html',['as'=>'getDesignDetail', 'uses'=>'IndexController@getDesignDetail']);
 Route::get('thiet-ke/{alias}',['as'=>'getListDesign', 'uses'=>'IndexController@getListDesign']);
 
+Route::get('thi-cong',['as'=>'getThiCong', 'uses'=>'IndexController@thiCong']);
+Route::get('thi-cong/{alias}.html',['as'=>'getthiCongDetail', 'uses'=>'IndexController@getThiCongDetail']);
+Route::get('thi-cong/{alias}',['as'=>'getListThiCong', 'uses'=>'IndexController@getListThiCong']);
 
 Route::get('chuyen-giao-cong-nghe', 'IndexController@congNghe');
 Route::get('chuyen-giao-cong-nghe/{alias}.html', 'IndexController@congNgheDetail');

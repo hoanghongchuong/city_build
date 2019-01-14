@@ -65,7 +65,7 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtAlias'); !!}</label>
 								      	@endif
 									</div>
-									@if($_GET['type']=='khong-gian')
+									@if($_GET['type']=='thiet-ke')
 									<div class="form-group">
 								      	<label for="mota">Mô tả</label>
 								      	<textarea name="txtDesc" rows="5" class="form-control"></textarea>
@@ -115,13 +115,18 @@
 					      <label for="ten">Số thứ tự</label>
 					      <input type="number" min="1" name="stt" value="{!! count($parent)+1 !!}" class="form-control" style="width: 100px;">
 				    </div>
-				    
+				    @if($_GET['type']=='thiet-ke')
+				    <div class="form-group">
+					    <label>
+				        	<input type="checkbox" name="hot" checked="checked"> Hiển thị trang chủ
+				    	</label>
+				    </div>
+				    @endif
 				    <div class="form-group">
 					    <label>
 				        	<input type="checkbox" name="status" checked="checked"> Hiển thị
 				    	</label>
-				    </div>
-			    	
+				    </div>			    	
 			    </div>
 			    <div class="clearfix"></div>
 			    <div class="box-footer">

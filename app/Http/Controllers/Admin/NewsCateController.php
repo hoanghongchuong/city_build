@@ -15,7 +15,7 @@ class NewsCateController extends Controller {
 	public function getDanhSach()
     {
         if($_GET['type']=='tin-tuc') $trang='tin tức';
-        else if($_GET['type']=='dich-vu') $trang='dich vụ';
+        else if($_GET['type']=='thiet-ke') $trang='Thiết kế';
         else if($_GET['type']=='bai-viet') $trang='bài viết';
         else $trang = "bài viết";
         $data = NewsCate::all();
@@ -30,7 +30,7 @@ class NewsCateController extends Controller {
     public function getAdd()
     {
         if($_GET['type']=='tin-tuc') $trang='tin tức';
-        else if($_GET['type']=='dich-vu') $trang='dich vụ';
+        else if($_GET['type']=='thiet-ke') $trang='Thiết kế';
         else if($_GET['type']=='bai-viet') $trang='bài viết';
         else $trang = "bài viết";
 
@@ -78,6 +78,11 @@ class NewsCateController extends Controller {
             $cate->status = 1;
         }else{
             $cate->status = 0;
+        }
+        if($request->hot=='on'){
+            $cate->hot = 1;
+        }else{
+            $cate->hot = 0;
         }
         $cate->save();
         return redirect('backend/newscate?type='.$com)->with('status','Thêm mới thành công !');
@@ -180,7 +185,11 @@ class NewsCateController extends Controller {
             }else{
                 $news_cate->status = 0;
             }
-
+            if($request->hot=='on'){
+                $news_cate->hot = 1;
+            }else{
+                $news_cate->hot = 0;
+            }
             $news_cate->save();
 
             return redirect('backend/newscate/edit?id='.$id.'&type='.$com)->with('status','Cập nhật thành công');

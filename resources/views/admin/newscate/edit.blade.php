@@ -23,6 +23,7 @@
         <div class="box-body">
         	<form method="post" action="backend/newscate/edit?id={{$id}}&type={{ @$_GET['type'] }}" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
+        		<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>
       			<div class="nav-tabs-custom">
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>
@@ -66,13 +67,13 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtAlias'); !!}</label>
 								      	@endif
 									</div>
-									@if($_GET['type']=='dich-vu')
+									@if($_GET['type']=='thiet-ke')
 									<div class="form-group">
 								      	<label for="mota">Mô tả</label>
 								      	<textarea name="txtDesc" rows="5" class="form-control">{!! old('txtDesc', isset($data) ? $data->mota : null) !!}</textarea>
 									</div>
 									@endif
-									<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>
+									
 								</div>
 								<div class="col-md-6 col-xs-12">
 									@if($_GET['type']=='dich-vu')
@@ -125,7 +126,13 @@
 					      <label for="ten">Số thứ tự</label>
 					      <input type="number" min="1" name="stt" value="{!! isset($data->status) ? $data->stt : (count($parent)+1) !!}" class="form-control" style="width: 100px;">
 				    </div>
-				    
+				    @if($_GET['type']=='thiet-ke')
+				    <div class="form-group">
+					    <label>
+				        	<input type="checkbox" name="hot" {!! (!isset($data->hot) || $data->hot==1)?'checked="checked"':'' !!}> Hiển thị trang chủ
+				    	</label>
+				    </div>
+				    @enif
 				    <div class="form-group">
 					    <label>
 				        	<input type="checkbox" name="status" {!! (!isset($data->status) || $data->status==1)?'checked="checked"':'' !!}> Hiển thị

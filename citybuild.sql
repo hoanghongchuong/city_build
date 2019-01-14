@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 12, 2019 lúc 11:12 AM
+-- Thời gian đã tạo: Th1 14, 2019 lúc 04:36 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.10
 
@@ -579,7 +579,18 @@ INSERT INTO `news` (`id`, `cate_id`, `user_id`, `name`, `alias`, `photo`, `backg
 (7, 0, 8, 'Công trình 3', 'cong-trinh-3', '1547281804_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'anh-cong-trinh', 3, '2019-01-12 08:30:04', '2019-01-12 08:30:04'),
 (8, 1, 8, 'Thiết kế nội thất 1', 'thiet-ke-noi-that-1', '1547287293_sv1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 1, '2019-01-12 10:01:33', '2019-01-12 10:01:33'),
 (9, 1, 8, 'Thiết kế nội thất 2', 'thiet-ke-noi-that-2', '1547287328_news2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 2, '2019-01-12 10:02:08', '2019-01-12 10:02:08'),
-(10, 2, 8, 'Thiết kế nội thất 3', 'thiet-ke-noi-that-3', '1547287357_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 3, '2019-01-12 10:02:37', '2019-01-12 10:02:37');
+(10, 2, 8, 'Thiết kế nội thất 3', 'thiet-ke-noi-that-3', '1547287357_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 3, '2019-01-12 10:02:37', '2019-01-12 10:02:37'),
+(11, 3, 8, 'Bài viết thi công 1', 'bai-viet-thi-cong-1', '1547432293_news2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thi-cong', 1, '2019-01-14 02:39:18', '2019-01-14 02:39:18'),
+(12, 3, 8, 'Bài viết thi công 2', 'bai-viet-thi-cong-2', '1547432303_news3.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thi-cong', 2, '2019-01-14 02:39:26', '2019-01-14 02:39:26'),
+(13, 3, 8, 'Bài viết thi công 3', 'bai-viet-thi-cong-3', '1547432330_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thi-cong', 3, '2019-01-14 02:39:52', '2019-01-14 02:39:52'),
+(14, 3, 8, 'Bài viết thi công 4', 'bai-viet-thi-cong-4', '1547432346_sv1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thi-cong', 4, '2019-01-14 02:39:47', '2019-01-14 02:39:47'),
+(15, 0, 8, 'Công trình 4', 'cong-trinh-4', '1547435083_sv2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'anh-cong-trinh', 4, '2019-01-14 03:04:43', '2019-01-14 03:04:43'),
+(16, 0, 8, 'Công trình 5', 'cong-trinh-5', '1547435044_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'anh-cong-trinh', 5, '2019-01-14 03:04:04', '2019-01-14 03:04:04'),
+(17, 1, 8, 'Bài viết thiết kế nội thất 3', 'bai-viet-thiet-ke-noi-that-3', '1547436097_news4.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 4, '2019-01-14 03:21:37', '2019-01-14 03:21:37'),
+(18, 1, 8, 'Thiết kế nội thất demo', 'thiet-ke-noi-that-demo', '1547436122_news1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 5, '2019-01-14 03:22:02', '2019-01-14 03:22:02'),
+(19, 1, 8, 'Thiết kế nội thất demo 4', 'thiet-ke-noi-that-demo-4', '1547436139_p1.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 6, '2019-01-14 03:22:19', '2019-01-14 03:22:19'),
+(20, 2, 8, 'Thiết kế ngoại thất demo 1', 'thiet-ke-ngoai-that-demo-1', '1547436250_sv2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 7, '2019-01-14 03:24:10', '2019-01-14 03:24:10'),
+(21, 2, 8, 'Thiết kế ngoại thất demo 2', 'thiet-ke-ngoai-that-demo-2', '1547436272_news2.png', '', NULL, NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 8, '2019-01-14 03:24:32', '2019-01-14 03:24:32');
 
 -- --------------------------------------------------------
 
@@ -618,6 +629,7 @@ CREATE TABLE `news_categories` (
   `photo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mota` text COLLATE utf8_unicode_ci,
   `status` int(11) NOT NULL DEFAULT '0',
+  `hot` int(2) DEFAULT '0',
   `lever` int(11) NOT NULL DEFAULT '0',
   `parent_id` int(11) NOT NULL DEFAULT '0',
   `title` text COLLATE utf8_unicode_ci,
@@ -634,9 +646,12 @@ CREATE TABLE `news_categories` (
 -- Đang đổ dữ liệu cho bảng `news_categories`
 --
 
-INSERT INTO `news_categories` (`id`, `name`, `alias`, `photo`, `mota`, `status`, `lever`, `parent_id`, `title`, `keyword`, `description`, `com`, `stt`, `created_at`, `background`, `updated_at`) VALUES
-(1, 'Thiết kế nội thất', 'thiet-ke-noi-that', '', NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 1, '2019-01-12 07:39:20', '', '2019-01-12 07:39:20'),
-(2, 'Thiết kế ngoại thất', 'thiet-ke-ngoai-that', '', NULL, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 2, '2019-01-12 08:10:58', '', '2019-01-12 08:10:58');
+INSERT INTO `news_categories` (`id`, `name`, `alias`, `photo`, `mota`, `status`, `hot`, `lever`, `parent_id`, `title`, `keyword`, `description`, `com`, `stt`, `created_at`, `background`, `updated_at`) VALUES
+(1, 'Thiết kế nội thất', 'thiet-ke-noi-that', '1547432524_sv1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 1, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 1, '2019-01-14 02:27:59', '', '2019-01-14 02:27:59'),
+(2, 'Thiết kế ngoại thất', 'thiet-ke-ngoai-that', '1547432514_sv2.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 1, 1, 0, 0, NULL, NULL, NULL, 'thiet-ke', 2, '2019-01-14 02:28:14', '', '2019-01-14 02:28:14'),
+(3, 'Danh mục thi công 1', 'danh-muc-thi-cong-1', '', NULL, 1, 0, 0, 0, NULL, NULL, NULL, 'thi-cong', 1, '2019-01-14 02:17:38', '', '2019-01-14 02:17:38'),
+(4, 'Danh mục thi công 2', 'danh-muc-thi-cong-2', '', NULL, 1, 0, 0, 0, NULL, NULL, NULL, 'thi-cong', 2, '2019-01-14 02:17:46', '', '2019-01-14 02:17:46'),
+(5, 'Danh mục thi công 3', 'danh-muc-thi-cong-3', '', NULL, 1, 0, 0, 0, NULL, NULL, NULL, 'thi-cong', 3, '2019-01-14 02:17:55', '', '2019-01-14 02:17:55');
 
 -- --------------------------------------------------------
 
@@ -1384,7 +1399,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `newsletter`
@@ -1396,7 +1411,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT cho bảng `news_categories`
 --
 ALTER TABLE `news_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `pages`

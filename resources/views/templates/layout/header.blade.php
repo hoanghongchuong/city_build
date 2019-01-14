@@ -2,6 +2,7 @@
     $setting = Cache::get('setting');
     $sliders = DB::table('slider')->where('com','gioi-thieu')->where('status',1)->get();
     $categories = DB::table('news_categories')->where('com', 'thiet-ke')->where('status',1)->where('parent_id', 0)->get();
+    $cate_thicong  = DB::table('news_categories')->where('com', 'thi-cong')->where('status',1)->where('parent_id', 0)->get();
 ?>
 <header id="header" class="">
     <div class="container">
@@ -23,10 +24,9 @@
                     <li class="dropdown submenux">
                         <a href="">Thi công</a>
                         <ul class="dropdown-menu dropmenux">
-                            <li><a href="#">Công trình 1</a></li>                                
-                            <li><a href="#">Công trình 1</a></li>                                
-                            <li><a href="#">Công trình 1</a></li>                                
-                            <li><a href="#">Công trình 1</a></li>                                
+                            @foreach($cate_thicong as $cate)
+                            <li><a href="{{url('thi-cong/'.$cate->alias)}}">{{$cate->name}}</a></li>                                
+                            @endforeach                               
                         </ul>
                     </li>
                     <li><a href="{{url('anh-cong-trinh')}}">Ảnh công trình</a></li>
